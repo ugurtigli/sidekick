@@ -69,12 +69,12 @@ We shall be using maintained spark operator by GCP at https://github.com/GoogleC
 
 ```
 helm repo add incubator http://storage.googleapis.com/kubernetes-charts-incubator
-helm install spark-operator incubator/sparkoperator --namespace spark-operator  --set sparkJobNamespace=spark-operator --set enableWebhook=true
+helm install --name spark-operator incubator/sparkoperator --namespace spark-operator  --set sparkJobNamespace=spark-operator --set enableWebhook=true
 ```
 
 ### Install *MinIO*
 ```
-helm install minio-distributed stable/minio --namespace spark-operator --set accessKey=minio,secretKey=minio123,persistence.enabled=false,mode=distributed
+helm install --name minio-distributed stable/minio --namespace spark-operator --set accessKey=minio,secretKey=minio123,persistence.enabled=false,mode=distributed
 ```
 
 > NOTE: persistence is disabled here for testing, make sure you are using persistence with PVs for production workload.
